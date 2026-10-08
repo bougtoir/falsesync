@@ -1,0 +1,50 @@
+case,check,value,expected,status,note
+A,ls_location,5.005,5.0,ok,
+A,maxslope_location,5,5.0,ok,
+B,ls_location,5.005,5.0,ok,
+B,m_at_t_is_F,0.000414933,~0,ok,
+B,maxslope_degenerate,5.685,,ok,uniform density: argmax is flat boundary artifact
+C,ls_location,5,5.0,ok,
+C,maxslope_location,5,5.0,ok,
+C,max_slope,0.498674,0.498678,ok,m' = f_tau peak (P1)
+D,ls_location,5.005,5.0,ok,
+D,ls_foc_residual,0.00168561,~0,ok,P7
+D,point_symmetry_max_dev,2.22045e-16,~0,ok,P2
+E,bimodal_delta=0.5,1,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=0.5,5.005,5.0,ok,
+E,bimodal_delta=1.0,1,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=1.0,5.005,5.0,ok,
+E,bimodal_delta=1.5,1,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=1.5,5,5.0,ok,
+E,bimodal_delta=2.0,1,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=2.0,5,5.0,ok,
+E,bimodal_delta=2.5,2,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=2.5,5.005,5.0,ok,
+E,bimodal_delta=3.0,2,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=3.0,5.005,5.0,ok,
+E,bimodal_delta=4.0,2,>=2 iff delta>2sigma,ok,P6a
+E,ls_location_delta=4.0,5,5.0,ok,
+E,ls_location_pi=0.1,6.235,mean=6.25,ok,"P6b: LS interpolates centers, != mean in asymmetric case"
+E,ls_location_pi=0.3,5.845,mean=5.75,ok,"P6b: LS interpolates centers, != mean in asymmetric case"
+E,ls_location_pi=0.5,5.195,mean=5.25,ok,"P6b: LS interpolates centers, != mean in asymmetric case"
+E,ls_location_pi=0.7,4.575,mean=4.75,ok,"P6b: LS interpolates centers, != mean in asymmetric case"
+E,ls_location_pi=0.9,4.21,mean=4.25,ok,"P6b: LS interpolates centers, != mean in asymmetric case"
+F,ls_location_kappa=0.0,5.02,,ok,P4: weight-tilted estimand
+F,ls_location_kappa=0.5,4.675,,ok,P4: weight-tilted estimand
+F,ls_location_kappa=1.0,4.365,,ok,P4: weight-tilted estimand
+F,ls_location_kappa=1.5,4.05,,ok,P4: weight-tilted estimand
+F,tilted_conv_vs_weighted_maxdev,0.0121903,<0.05,ok,P4 numerical equivalence
+G,ls_location_truncated,4.795,,ok,P5: biased early vs 5.0 (late-entering units arrive post-transition)
+G,max_dev_vs_F,0.482071,>0,ok,
+G,conditional_cdf_identity,0,~0,ok,P5: m_obs = P(tau<=t | obs at t)
+H,ls_location_ar1_noise,4.995,~5.0,ok,serial noise inflates unit tau dispersion -> CE-UNITERR guard needed
+H,ls_boot_sd,0.00320156,,ok,aggregate break stability under noise jitter
+CE,spike_max_slope,69.8625,~A*(1-eps)/dt,ok,CE-SPIKE: large variance but step-sharp aggregate
+CE,window_ls_T=8.0,3.65,,ok,"CE-WINDOW: same F_tau, different window, different break"
+CE,window_ls_T=12.0,3.955,,ok,"CE-WINDOW: same F_tau, different window, different break"
+CE,window_ls_T=20.0,4.115,,ok,"CE-WINDOW: same F_tau, different window, different break"
+CE,align_jitter_sd,0.0893629,>0,ok,CE-ALIGN: estimation noise mimics heterogeneity even at synchronous tau
+OPS,T_ls,3.845,,ok,operator-dependent estimand (P7)
+OPS,T_maxslope,3.255,,ok,operator-dependent estimand (P7)
+OPS,T_cusum,4.225,,ok,operator-dependent estimand (P7)
+OPS,T_binseg,2.48,,ok,operator-dependent estimand (P7)

@@ -1,0 +1,19 @@
+claim_id,statement_short,model_scope,assumptions,proof_status,proof_location,numeric_verified,manuscript_claim_level
+P1,"Step g: m(t)=a+A*F_tau(t); m'=A*f_tau; T_maxslope=mode(F_tau)",S1,S2 homogeneous g; step transition; no noise,PROVED,proofs/P1_step_identity.md,yes,main_result
+P2,"Symmetric g + symmetric F_tau(center c): m(c+s)+m(c-s)=2a+A; T_LS=T_ms=c",S2,antisymmetric transition (g(u)+g(-u)=1); symmetric timing density,PROVED,proofs/P2_symmetry.md,yes,main_result
+P3a,"Probit g + N(mu,sigma^2) F: m=Phi((t-mu)/sqrt(1+sigma^2)); max slope=A/sqrt(2pi(1+sigma^2)) strictly decreasing in sigma",S2,probit transition; Gaussian timing,PROVED,proofs/P3_dispersion_sharpness.md,yes,main_result
+P3b,"Dispersion reduces aggregate sharpness",S2/S3,regular unimodal scale-family spread,PROVED_WITH_RESTRICTIONS,proofs/P3_dispersion_sharpness.md,yes,qualitative_result
+P4,"Weighting tilts the estimand: m_w = a+A*(g*f_tau^w) with F^w the weight-tilted timing law",S3,"constant per-unit weights; homogeneous g and A",PROVED,proofs/P4_weighting.md,yes,main_result
+P5,"Truncation: m_obs(t) is convolution vs time-varying observed timing measure; step g gives P(tau<=t|observed at t) != F_tau(t)",S4,observation window possibly correlated with tau_i,PROVED,proofs/P5_truncation.md,yes,main_result
+P6a,"Two equal-variance normal mixture is bimodal iff separation > 2 sigma (equal weights; threshold grows for unequal)",S6,two-component Gaussian mixture; step g for aggregate consequence,PROVED,proofs/P6_mixture.md,yes,main_result
+P6b,"Merged-cluster F_tau: single-break LS location interpolates centers with pi, biased vs E[tau]",S6,two-component Gaussian; numeric,NUMERICALLY_SUPPORTED,proofs/P6_mixture.md,yes,supporting_numeric
+P6c,"Aggregate curve alone cannot certify synchrony: unit-level tau_i information required",S6,corollary of P6a+P8b,PROVED,proofs/P6_mixture.md,yes,main_result
+P7,"LS breakpoint satisfies m(c)=(bar m_L+bar m_R)/2: window-dependent global functional; generally != mean/median/mode; T_LS != T_ms for skewed/mixture F",S2/S5,continuous m; uniform time weighting,PROVED,proofs/P7_ls_functional.md,yes,main_result
+P8a,"Known g with nonzero Fourier transform: F_tau identifiable from m (step g trivially, F_tau=(m-a)/A); smooth g ill-posed inverse",S2,known transition shape,PROVED,proofs/P8_identifiability.md,yes,main_result
+P8b,"Unknown g: (g,F_tau) pair not identifiable from m alone (blur-kernel exchange)",S2,no shape constraint,PROVED,proofs/P8_identifiability.md,na,main_result
+P8c,"F_tau recoverable from unit-level break estimates + error-law deconvolution (SSRN prior art)",S5+S6,unit-level tau_i estimates with known/estimable error law,PROVED,proofs/P8_identifiability.md,na,background
+C-SHARP,"Dispersion strictly lowers sharpness for logistic/probit g over sigma grid",S3,mean-preserving Gaussian timing spread,NUMERICALLY_SUPPORTED,proofs/P3_dispersion_sharpness.md,yes,supporting_numeric
+C-MODE,"T_ms tracks mixture's first mode; T_LS tracks midpoint-of-means; divergence quantified",S6,numeric grid,NUMERICALLY_SUPPORTED,proofs/P7_ls_functional.md,yes,supporting_numeric
+CE-SPIKE,"Spike+flat F_tau defeats 'dispersion implies smooth aggregate' heuristic",S2,point-mass plus uniform mixture,FALSE_COUNTEREXAMPLE_FOUND,counterexamples.md,yes,counterexample
+CE-WINDOW,"Same F_tau different observation window gives different LS breakpoint",S5,window weighting,PROVED,counterexamples.md,yes,counterexample
+CE-ALIGN,"Event-time realignment can worsen apparent asynchrony under weighting/truncation",S4/S5,numeric demonstration,FALSE_COUNTEREXAMPLE_FOUND,counterexamples.md,yes,counterexample

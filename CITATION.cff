@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: falsesync
+abstract: >-
+  A Python toolkit for diagnosing whether a change point detected in an
+  aggregate time series can be interpreted as a common underlying event when
+  unit-level transition times may be heterogeneous.
+authors:
+  - family-names: Onishi
+    given-names: Tatsuki
+version: 0.1.0
+date-released: "2026-10-08"
+license: MIT
+repository-code: "https://github.com/bougtoir/falsesync"
+keywords:
+  - change-point analysis
+  - aggregation
+  - synchrony
+  - panel time series
+  - calibration
+references:
+  - type: article
+    title: "Aggregation-Induced False Synchrony in Change-Point Analysis"
+    authors:
+      - family-names: Onishi
+        given-names: Tatsuki
+    notes: "Manuscript submitted to Technometrics."

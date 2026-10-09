@@ -1,0 +1,20 @@
+PACKAGE CONTENT AUDIT - falsesync 0.1.2 candidate (built from source tree identical to public main a726b02)
+wheel falsesync-0.1.2-py3-none-any.whl  ~31.6 kB
+  falsesync/{__init__,aggregation,alignment,changepoints,datasets,diagnostics,features,inference,model,plotting,
+  regimes,simengine,simulation,transitions}.py + dist-info (METADATA, WHEEL, RECORD, top_level.txt, licenses/LICENSE)
+sdist falsesync-0.1.2.tar.gz            ~32.4 kB
+  src/falsesync/*.py, tests/test_phase3.py, tests/test_theory.py, README.md, LICENSE, pyproject.toml, setup.cfg,
+  PKG-INFO, src/falsesync.egg-info/*
+45 files in total across both artifacts.
+Checks (both artifacts, extracted):
+  raw data / data/raw            none
+  manuscript docx/pdf            none
+  prompts, handoffs, Devin/session artifacts, chat logs, review notes   none
+  .env / credentials / tokens    none (gitleaks dir: no leaks found)
+  absolute local paths (/home/, /Users/, C:\)   none
+  private emails / private URLs  none
+  files > 1 MB                   none
+  caches / build junk            none
+  unrelated repository content   none
+Final upload artifacts will be rebuilt from the Zenodo v0.1.2 archive; SHA-256 recorded in PYPI_RELEASE_RECORD.txt.
+Security status: SAFE_FOR_PYPI_UPLOAD

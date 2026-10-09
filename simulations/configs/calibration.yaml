@@ -1,0 +1,49 @@
+# Calibration grid — fits regime classifier + temperature + thresholds.
+# Seeds 1000-1999. Never used for reported performance.
+name: calibration
+master_seed: 1000
+max_cells: 900
+n_units: [25, 60, 120]
+n_t: [60, 120, 240]
+regimes:
+  synchronous: [degenerate]
+  near_synchronous: [narrow_normal]
+  diffuse: [broad_normal, uniform, skewed, spike_diffuse, heavy_tail]
+  two_cluster: [two_normal_mix]
+  three_cluster: [three_normal_mix]
+  no_transition: [degenerate]
+shapes: [step, logistic]
+amplitudes: [0.5, 1.0, 2.0]
+widths: [0.2, 0.5]
+noise: {kind: iid, sd: 0.15}
+weights: {kind: equal}
+missing: {kind: complete}
+hetero: {amp: 0.0, width: 0.0, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+seeds_per_cell: 3
+
+# stress blocks: one dimension varied at a time, moderate cells each
+stress:
+  noise:
+    - {kind: t3, sd: 0.15}
+    - {kind: heterosk, sd: 0.15}
+    - {kind: ar1, sd: 0.15, params: {rho: 0.7}}
+    - {kind: seasonal, sd: 0.15, params: {period: 0.4}}
+  weights:
+    - {kind: static, params: {sd: 0.8}}
+    - {kind: timing_corr, params: {kappa: 1.0}}
+    - {kind: timevarying, params: {sd: 0.5, slope: 0.3}}
+  missing:
+    - {kind: mcar, params: {rate: 0.15}}
+    - {kind: dropout, params: {rate: 0.3}}
+    - {kind: late_entry, params: {rate: 0.3}}
+    - {kind: informative, params: {kappa: 1.0, lead: 1.0}}
+  hetero:
+    - {amp: 0.3, width: 0.0, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+    - {amp: 0.0, width: 0.3, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.5, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.5}
+  trend:
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: linear, trend_scale: 0.4, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: nonlinear, trend_scale: 0.3, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: local_drift, trend_scale: 0.3, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: mixed, trend_scale: 0.4, noisevar: 0.0}

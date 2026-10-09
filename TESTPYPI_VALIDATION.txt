@@ -1,0 +1,30 @@
+TESTPYPI VALIDATION - falsesync 0.1.2
+Status: PASS
+
+Source identity
+  GitHub tag        v.0.1.2 (author's tag convention) -> a726b02434c6905951cab50d6c3edad8538871f6 (public main)
+  Zenodo record     10.5281/zenodo.23250585 (version v.0.1.2, 2026-10-09; concept DOI 10.5281/zenodo.23233536)
+  Zenodo file       bougtoir/falsesync-v.0.1.2.zip  md5 b6e5d4f3424c1d5885766f5701a5dd15  7242564 bytes
+  Archive check     unzipped tree (116 files) == public main checkout (diff -rq, .git excluded): identical
+Build
+  built from the unzipped Zenodo archive with python -m build (Python 3.12)
+  twine check       PASSED (wheel, sdist)
+  wheel/sdist src   falsesync/ package tree identical to archive src/falsesync (diff -rq)
+  gitleaks          no leaks found; no local paths / private e-mails / session artifacts
+Upload
+  https://test.pypi.org/project/falsesync/0.1.2/  (twine, API token from the Devin secret store; token never written to disk/logs)
+  TestPyPI sha256 == local sha256 for both files
+TestPyPI metadata
+  name falsesync, version 0.1.2, License-Expression MIT, Requires-Python >=3.10, README rendered (text/markdown)
+  Requires-Dist numpy<2.4,>=2.0; scikit-learn<1.8,>=1.5; scipy, pandas, statsmodels, matplotlib, joblib, pyyaml; extras dev, cp
+  project URLs Homepage/Source/Issues/Changelog/DOI; 9 classifiers
+Fresh install from TestPyPI (dependencies from PyPI), one new venv per Python version
+  python|numpy|sklearn|import from site-packages|wheel sha|minimal example rc|output md5|warnings|tests
+  3.10|2.2.6|1.7.2|yes|aaf422029c01|0|09a55f0ca70a|0|27 passed
+  3.11|2.3.5|1.7.2|yes|aaf422029c01|0|09a55f0ca70a|0|27 passed
+  3.12|2.3.5|1.7.2|yes|aaf422029c01|0|09a55f0ca70a|0|27 passed
+  minimal-example output identical to local 0.1.2/0.1.1 runs.
+  pytest reports 1 FutureWarning (sklearn multi_class deprecation inside test_classifier_fit_predict);
+  expected under the <1.8 bound, no effect on results.
+Production PyPI: uploaded after author authorization -> https://pypi.org/project/falsesync/0.1.2/
+  fresh `pip install falsesync==0.1.2` on 3.10/3.11/3.12: import from site-packages, minimal example rc 0 / md5 09a55f0ca70a / 0 warnings, 27 passed.

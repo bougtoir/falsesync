@@ -1,0 +1,2 @@
+timestamp,python,numpy,pandas,scipy,sklearn,calibration_cells,eval_cells,seeds,mode
+2026-09-23T07:56:50Z,3.10.12,2.2.6,2.3.3,1.15.3,1.7.2,1071,581,"dev=100, calibration=1000-1999, eval_locked=3000-3999, stress=7000+","FULL (laptop, single-thread, no GPU)"

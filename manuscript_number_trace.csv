@@ -1,0 +1,19 @@
+claim,value,source,script,seeds,field
+abstract_balanced_accuracy,0.893,evaluation_summary.csv,run_evaluation.py,3000-3999,balanced_accuracy
+abstract_false_certify,0.0344 (20/581 diffuse-truth cells certified sync),evaluation_summary.csv,run_evaluation.py,3000-3999,false_certify_rate_strong_break
+sec4_2_accuracy,0.861,evaluation_summary.csv,run_evaluation.py,3000-3999,accuracy
+sec4_2_brier,0.197,evaluation_summary.csv,run_evaluation.py,3000-3999,brier
+sec4_2_ece,0.064,evaluation_summary.csv,run_evaluation.py,3000-3999,ece
+sec4_2_warn_sens,0.950,evaluation_summary.csv,run_evaluation.py,3000-3999,warning_sensitivity_async
+sec4_2_warn_sync,0.30,evaluation_results.csv,run_evaluation.py,3000-3999,warning mean over regime=synchronous
+sec4_2_warn_near,0.98,evaluation_results.csv,run_evaluation.py,3000-3999,warning mean over regime=near_synchronous
+sec4_3_error_floor,0.30/0.19/0.60,error_floor_results.csv,run_stress.py,7000+,naive/corrected/deconv at max noise
+sec4_4_trend_ratio,1.0 vs 2.1-2.9,trend_heterogeneity_results.csv,run_stress.py,7000+,median detrended/raw sd ratio
+sec4_5_operator_spread,2.3/0.6/0.4/3.9/6.4,operator_sensitivity.csv,run_stress.py,7000+,mean operator_spread by regime
+sec4_6_informative_psync,0.999,weighting_truncation_results.csv,run_stress.py,7000+,diffuse+equal+informative p_sync mean
+sec4_6_detection,0.50-0.75,missingness_mitigation_results.csv,run_missingness_mitigation.py,9000+,informative_detected by label
+sec4_6_certify,0/180 vs 1/180,missingness_mitigation_results.csv,run_missingness_mitigation.py,9000+,"certify_B vs certify_A, async regimes"
+sec4_6_sync_cert,0.50 to 0.47,missingness_mitigation_results.csv,run_missingness_mitigation.py,9000+,"certify_A/B mean, synchronous"
+sec4_7_near_boundary,sigma<=0.05 p_sync 0.98; sigma>=0.2 p_sync 0.15,near_sync_sensitivity.csv,run_near_sync.py,9500+,p_sync by sigma
+sec5_1_kelmarsh,day 246; strength 1.24; sd 29.1d,kelmarsh_results.csv,run_kelmarsh.py,-,agg_break_day/agg_strength/tau_sd
+sec5_2_nasa,"breaks {110,155,181,193}; sd 31.8; strength -1.67; spread 282; p_NT 0.99997",nasa_battery_results.csv,run_nasa_battery.py,-,"tau_B*, tau_sd, agg_strength, operator_spread, p_NO_TRANSITION"

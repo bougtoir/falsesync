@@ -1,0 +1,42 @@
+PYPI PREPARATION AUDIT - falsesync
+Date (UTC): 2026-10-08
+
+HISTORY
+  0.1.1 (Zenodo 10.5281/zenodo.23236655, commit 199a975): STOP_RELEASE. Declared numpy>=2.0 / scikit-learn>=1.5
+  resolve on Python >= 3.11 to numpy >= 2.4 and scikit-learn >= 1.8, where np.trapz (aggregation.py:83,
+  diagnostics.py:162) and LogisticRegression(multi_class=...) (regimes.py:59) no longer exist -> 5/27 tests fail.
+  Author chose remedy (2026-10-08): 0.1.2 = dependency upper bounds + PyPI metadata, no code change.
+
+CANDIDATE 0.1.2
+  Source: public bougtoir/falsesync main a726b02434c6905951cab50d6c3edad8538871f6
+          (= wip pointer commit 1e4ab3c5e, subdir falsesync; 116 files; gitleaks: no leaks)
+  Changes vs 0.1.1 (packaging/docs only): pyproject.toml, src/falsesync/__init__.py (__version__),
+          CITATION.cff, CHANGELOG.md, README.md. All other files byte-identical to the 0.1.1 archive.
+  pyproject: version 0.1.2; numpy>=2.0,<2.4; scikit-learn>=1.5,<1.8; license = "MIT" (SPDX) + license-files;
+          build requires setuptools>=77 (removes table-license deprecation warning); keywords; classifiers
+          (Python 3.10/3.11/3.12, Beta, Science/Research, OS Independent); project URLs (Homepage, Source,
+          Issues, Changelog, DOI = concept DOI 10.5281/zenodo.23233536).
+
+GATES
+  project-name availability     PASS  pypi.org and test.pypi.org /pypi/falsesync/json -> HTTP 404
+  version identity              PASS  pyproject / __version__ / CITATION.cff / CHANGELOG / README = 0.1.2
+                                PENDING  GitHub release + Zenodo archive for 0.1.2 (author action)
+  build (wheel + sdist)         PASS  build 1.6.1, no warnings
+  twine check                   PASS  twine 7.0.0
+  artifact source identity      PASS  wheel and sdist src/falsesync identical to source tree
+  security                      PASS  SAFE_FOR_PYPI_UPLOAD (PYPI_PACKAGE_CONTENT_AUDIT.txt)
+  wheel / sdist clean install   PASS  Python 3.10, 3.11, 3.12 (default dependency resolution)
+  import + __version__=="0.1.2" PASS
+  minimal example               PASS  0 warnings, identical stdout in all 6 environments (source checkout:
+                                      needs examples/ and simulations/calibration/classifier.joblib, not shipped)
+  tests                         PASS  27/27 in all 6 environments
+  QUICK replication             PASS  Python 3.10 (matplotlib 3.10.9): tables + figures match
+                                NOTE  Python 3.12 (matplotlib 3.11.2): all tables match; Figures 1-4 differ 2.8-5.9%
+                                      of pixels (rendering only). Documented in README; not a package defect.
+  runtime dependencies          PASS  all on PyPI; licenses BSD-3 (numpy, scipy, pandas, statsmodels, scikit-learn,
+                                      joblib), MIT (pyyaml), matplotlib license (PSF-based) - MIT compatible.
+                                      statsmodels/joblib/pyyaml are not imported by src/falsesync (used by scripts).
+  README                        PASS  renders (twine check); no relative images; no PyPI availability claim
+  TestPyPI validation           PENDING (needs token)
+
+VERDICT: PUBLISHED_TO_PYPI (https://pypi.org/project/falsesync/0.1.2/; built from Zenodo 10.5281/zenodo.23250585 archive; TestPyPI and PyPI fresh installs PASS on 3.10/3.11/3.12).

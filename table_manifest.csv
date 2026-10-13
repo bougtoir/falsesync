@@ -1,0 +1,9 @@
+table,content,source_file,manuscript_citation
+T1_estimands,"Estimands: T_M(F_tau,g,w,window,noise) + regime definitions",math_specification.md,Table 1
+T2_sim_design,Simulation grid: regimes x families x shapes x stress blocks,simulation_design.md,S2
+T3_locked_eval,Locked-eval performance: acc/bacc/brier/ECE/warning metrics,evaluation_summary.csv,Table 2
+T4_realdata,Kelmarsh + NASA diagnostic summaries (diagnostic language only),kelmarsh_results.csv/nasa_battery_results.csv,Table 3
+TS_operators,Operator sensitivity per regime,operator_sensitivity.csv,S4
+TS_trend,Trend confounding raw vs detrended,trend_heterogeneity_results.csv,S5
+TS_error_floor,Naive vs corrected vs deconvolved dispersion,error_floor_results.csv,S6
+TS_weight_trunc,Weighting/truncation sensitivity + informative-missingness failure,weighting_truncation_results.csv,S7

@@ -1,0 +1,43 @@
+# LOCKED evaluation grid — committed before running; never edited after.
+# Seeds 3000-3999; includes held-out configuration values not in calibration
+# (probit/linear shapes, N=40/200, off-grid f_params, miss/weight mixtures).
+name: evaluation_locked
+master_seed: 3000
+max_cells: 500
+n_units: [40, 80, 200]
+n_t: [90, 180]
+regimes:
+  synchronous: [degenerate]
+  near_synchronous: [narrow_normal]
+  diffuse: [broad_normal, uniform, skewed, spike_diffuse, heavy_tail]
+  two_cluster: [two_normal_mix]
+  three_cluster: [three_normal_mix]
+  no_transition: [degenerate]
+shapes: [probit, linear, logistic]
+amplitudes: [0.7, 1.5]
+widths: [0.3, 0.6]
+noise: {kind: iid, sd: 0.2}
+weights: {kind: equal}
+missing: {kind: complete}
+hetero: {amp: 0.0, width: 0.0, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+f_params_override:
+  broad_normal: {sigma: 1.1}
+  narrow_normal: {sigma: 0.25}
+  two_normal_mix: {delta: 3.0, sigma: 0.45}
+seeds_per_cell: 3
+
+stress:
+  noise:
+    - {kind: t3, sd: 0.2}
+    - {kind: ar1, sd: 0.2, params: {rho: 0.8}}
+  weights:
+    - {kind: timing_corr, params: {kappa: 1.4}}
+    - {kind: timevarying, params: {sd: 0.6, slope: 0.4}}
+  missing:
+    - {kind: dropout, params: {rate: 0.4}}
+    - {kind: informative, params: {kappa: 1.2, lead: 0.8}}
+  hetero:
+    - {amp: 0.4, width: 0.2, base: 0.3, trend_kind: none, trend_scale: 0.0, noisevar: 0.3}
+  trend:
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: linear, trend_scale: 0.5, noisevar: 0.0}
+    - {amp: 0.0, width: 0.0, base: 0.0, trend_kind: mixed, trend_scale: 0.5, noisevar: 0.0}

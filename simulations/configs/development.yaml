@@ -1,0 +1,20 @@
+# Development grid — small, coarse, debugging only (never reported).
+name: development
+master_seed: 100
+max_cells: 60
+n_units: [25, 60]
+n_t: [60, 120]
+regimes:
+  synchronous: [degenerate]
+  near_synchronous: [narrow_normal]
+  diffuse: [broad_normal]
+  two_cluster: [two_normal_mix]
+  no_transition: [degenerate]
+shapes: [step, logistic]
+amplitudes: [1.0]
+widths: [0.2, 0.5]
+noise: {kind: iid, sd: 0.15}
+weights: {kind: equal}
+missing: {kind: complete}
+hetero: {amp: 0.0, width: 0.0, base: 0.0, trend_kind: none, trend_scale: 0.0, noisevar: 0.0}
+seeds_per_cell: 2

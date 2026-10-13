@@ -1,0 +1,17 @@
+PYPI RELEASE RECORD - falsesync
+package name        falsesync
+version             0.1.2 (0.1.1 STOP_RELEASE, not uploaded)
+GitHub tag          v.0.1.2
+GitHub commit       a726b02434c6905951cab50d6c3edad8538871f6
+Zenodo DOI          10.5281/zenodo.23250585 (concept 10.5281/zenodo.23233536)
+TestPyPI URL        https://test.pypi.org/project/falsesync/0.1.2/
+production PyPI URL https://pypi.org/project/falsesync/0.1.2/ (author-authorized; same two files as TestPyPI, sha256 verified on PyPI)
+wheel               falsesync-0.1.2-py3-none-any.whl  sha256 aaf422029c01f321327874f65025ba856f15e21e913371a9f0bb7fcdd9ccd8bf
+sdist               falsesync-0.1.2.tar.gz            sha256 d5b6392d6f3a2d70f6878101c37dd1304c76de14643dba3e894235a888dff34a
+artifact source     built from Zenodo v.0.1.2 archive (identical to public main a726b02)
+tested Python       3.10, 3.11, 3.12
+test result         PASS 27/27 (local wheel+sdist x3, TestPyPI install x3, PyPI install x3)
+clean-install       PASS (local wheel/sdist; TestPyPI install; `pip install falsesync==0.1.2` from PyPI on 3.10/3.11/3.12)
+minimal example     PASS, rc 0, 0 warnings, identical output in all environments
+authentication      twine (__token__): TestPyPI token from Devin secret store; PyPI token supplied for this session only (not saved)
+final verdict       PUBLISHED_TO_PYPI

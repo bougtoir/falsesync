@@ -1,0 +1,2 @@
+n_cells,accuracy,balanced_accuracy,brier,ece,macro_f1,warning_sensitivity_async,warning_false_rate_sync,warning_rate_no_transition,false_certify_rate_all,false_certify_rate_strong_break,dispersion_est_rel_error,agg_strength_crit,sync_prob_crit,timestamp
+581,0.8605851979345955,0.8928538110723263,0.1968936184362511,0.06368301272462532,0.863077862456872,0.9504950495049505,0.5886524822695035,0.0,0.03442340791738382,0.03442340791738382,1.7342136516619426,3.0,0.5,2026-09-23T07:49:40Z

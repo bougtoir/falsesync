@@ -1,0 +1,14 @@
+PYTHON COMPATIBILITY - falsesync
+0.1.2 candidate (fresh venvs, default dependency resolution, wheel and sdist installed separately)
+python  artifact  numpy  scikit-learn  scipy   pandas  import/version  minimal_example     tests
+3.10    wheel     2.2.6  1.7.2         1.15.3  2.3.3   PASS 0.1.2      PASS (0 warnings)   27 passed
+3.10    sdist     2.2.6  1.7.2         1.15.3  2.3.3   PASS 0.1.2      PASS (0 warnings)   27 passed
+3.11    wheel     2.3.5  1.7.2         1.17.1  3.0.6   PASS 0.1.2      PASS (0 warnings)   27 passed
+3.11    sdist     2.3.5  1.7.2         1.17.1  3.0.6   PASS 0.1.2      PASS (0 warnings)   27 passed
+3.12    wheel     2.3.5  1.7.2         1.18.1  3.0.6   PASS 0.1.2      PASS (0 warnings)   27 passed
+3.12    sdist     2.3.5  1.7.2         1.18.1  3.0.6   PASS 0.1.2      PASS (0 warnings)   27 passed
+Minimal-example stdout identical in every environment (md5 prefix 09a55f0ca70a; same as 0.1.1).
+QUICK replication: 3.10 PASS; 3.12 tables match, Figures 1-4 pixel differences under matplotlib 3.11 (see README).
+
+0.1.1 (superseded): 3.10 PASS; 3.11/3.12 FAIL (5/27) with numpy 2.4.6-2.5.3 / scikit-learn 1.9.1.
+Result: PASS (0.1.2)
